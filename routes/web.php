@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Admin Interface Routes
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
+{
+    // Backpack\CRUD: Define the resources for the entities you want to CRUD.
+    CRUD::resource('employee', 'Admin\EmployeeCrudController');
+
+    // [...] other routes
+});

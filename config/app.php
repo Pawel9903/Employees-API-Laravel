@@ -132,6 +132,8 @@ return [
     |
     */
 
+    'log' => env('APP_LOG', 'daily'),
+
     'providers' => [
 
         /*
@@ -159,6 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Backpack\BackupManager\BackupManagerServiceProvider::class,
 
         /*
          * Package Service Providers...
