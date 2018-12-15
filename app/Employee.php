@@ -40,4 +40,9 @@ class Employee extends Model
             $this->attributes[$attribute_name] = $destination_path.'/'.$filename;
         }
     }
+
+    public function getFullName()
+    {
+        return $this->attributes['name'].' '.$this->attributes['surname'];
+    }
 }

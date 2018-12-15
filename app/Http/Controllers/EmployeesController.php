@@ -39,11 +39,14 @@ class EmployeesController extends Controller
      * @param Employee $employee
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request)
     {
+
+        $employee = Employee::find($request->id);
+
         $employee->update($request->all());
 
-        return response()->json($employee,200);
+        return response()->json(['status'=>1,'message'=>'Udało się zaktualizować dane pracownika '.$employee->getFullName()]);
     }
 
 

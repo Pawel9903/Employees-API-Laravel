@@ -16,13 +16,13 @@ class EmployeeCrudController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/employee');
         $this->crud->setEntityNameStrings('emloyee', 'employees');
 
-        $this->crud->setColumns(['name']);
-        $this->crud->setColumns(['surname']);
-        $this->crud->setColumns(['email']);
-        $this->crud->setColumns(['phone']);
-        $this->crud->setColumns(['city']);
-        $this->crud->setColumns(['salary']);
-        $this->crud->setColumns(['image']);
+        $this->crud->setColumns(['name','surname','email','phone','city','salary']);
+//        $this->crud->setColumns(['surname']);
+//        $this->crud->setColumns(['email']);
+//        $this->crud->setColumns(['phone']);
+//        $this->crud->setColumns(['city']);
+//        $this->crud->setColumns(['salary']);
+//        $this->crud->setColumns(['image']);
         $this->crud->addField([
             'name' => 'name',
             'label' => 'imię',
@@ -44,6 +44,7 @@ class EmployeeCrudController extends CrudController
             'label' => 'miasto',
         ]);
         $this->crud->addField([
+            'type' => 'number',
             'name' => 'salary',
             'label' => 'wynagrodzenie',
         ]);
