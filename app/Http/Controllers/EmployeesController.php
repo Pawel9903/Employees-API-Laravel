@@ -12,6 +12,7 @@ class EmployeesController extends Controller
      */
     public function index()
     {
+
         $employees =  Employee::all();
         return response()->json($employees,201);
     }
@@ -45,7 +46,6 @@ class EmployeesController extends Controller
      */
     public function update(Request $request)
     {
-
         $employee = Employee::find($request->id);
 
         $employee->update($request->all());
@@ -61,8 +61,6 @@ class EmployeesController extends Controller
      */
     public function delete(Request $request, $id)
     {
-
-
         $employee = Employee::find($id);
         $employee->delete();
 
