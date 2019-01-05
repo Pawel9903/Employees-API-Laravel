@@ -66,7 +66,7 @@ class AuthController extends Controller
         $user->save();
         return response([
             'status' => 'success',
-            'data' => $user
+            'user' => $user,
         ], 200);
     }
 
