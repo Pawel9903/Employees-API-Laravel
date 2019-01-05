@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EmployeesController extends Controller
 {
@@ -34,6 +35,7 @@ class EmployeesController extends Controller
     {
 
         $employee = new Employee($request->all());
+
         $employee->save();
         return response()->json($employee,201);
     }
@@ -46,6 +48,11 @@ class EmployeesController extends Controller
     public function update(Request $request)
     {
         $employee = Employee::find($request->id);
+
+        if($request->file)
+        {
+            Storage::disk('local')->put($request->fileName, $request->file);
+        }
 
         $employee->update($request->all());
 
